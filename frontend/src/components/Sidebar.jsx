@@ -1,36 +1,26 @@
 import { NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  FiHome,
-  FiFileText,
-  FiAlertCircle,
-  FiShield,
-  FiMessageSquare,
-  FiBook,
-  FiX,
-  FiGrid,
-  FiUsers,
-  FiTrendingUp,
-  FiHeart
+  FiHome, FiBriefcase, FiFileText, FiAlertCircle,
+  FiShield, FiMessageSquare, FiBook, FiX, FiUsers, FiTrendingUp, FiHeart, FiGrid
 } from 'react-icons/fi'
 
 const navItems = [
-  { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
-  { to: '/housing', icon: FiGrid, label: 'Housing & Community' },
-  { to: '/schemes', icon: FiBook, label: 'Gov. Schemes' },
-  { to: '/complaints', icon: FiFileText, label: 'Complaints' },
-  { to: '/emergency', icon: FiAlertCircle, label: 'Emergency' },
-  { to: '/cyber', icon: FiShield, label: 'Cyber Safety' },
-  { to: '/chatbot', icon: FiMessageSquare, label: 'AI Assistant' },
-  { to: '/volunteer', icon: FiUsers, label: 'Volunteer' },
-  { to: '/business', icon: FiTrendingUp, label: 'Business Growth' },
-  { to: '/donation', icon: FiHeart, label: 'Donation Agent' },
+  { to: '/dashboard',  icon: FiHome,         label: 'Dashboard' },
+  { to: '/housing',    icon: FiGrid,         label: 'Housing' },
+  { to: '/schemes',    icon: FiBook,         label: 'Gov. Schemes' },
+  { to: '/complaints', icon: FiFileText,     label: 'Complaints' },
+  { to: '/emergency',  icon: FiAlertCircle,  label: 'Emergency' },
+  { to: '/cyber',      icon: FiShield,       label: 'Cyber Safety' },
+  { to: '/chatbot',    icon: FiMessageSquare,label: 'AI Assistant' },
+  { to: '/volunteer',  icon: FiUsers,        label: 'Volunteer' },
+  { to: '/business',   icon: FiTrendingUp,   label: 'Business Growth' },
+  { to: '/donation',   icon: FiHeart,        label: 'Donation Agent' },
 ]
 
 export default function Sidebar({ open, setOpen }) {
   return (
     <>
-      {/* Mobile overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -43,7 +33,6 @@ export default function Sidebar({ open, setOpen }) {
         )}
       </AnimatePresence>
 
-      {/* Sidebar */}
       <aside
         className={`fixed top-16 left-0 h-[calc(100vh-4rem)] z-40 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 transition-all duration-300 flex flex-col ${
           open ? 'w-60' : 'w-0 lg:w-16'
