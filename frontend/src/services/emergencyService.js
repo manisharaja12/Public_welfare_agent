@@ -1,10 +1,7 @@
-import axios from 'axios'
+import { emergencyApi as api } from './api'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
-const api = axios.create({ baseURL: API_BASE })
-
-export const triggerSOS = (location) => api.post('/api/emergency/sos', location)
-export const getNearbyHospitals = (coords) => api.get('/api/emergency/hospitals', { params: coords })
-export const getNearbyPolice = (coords) => api.get('/api/emergency/police', { params: coords })
-export const getNearbyAmbulance = (coords) => api.get('/api/emergency/ambulance', { params: coords })
-export const getEmergencyContacts = () => api.get('/api/emergency/contacts')
+export const triggerSOS          = (location) => api.post('/api/emergency/sos', location)
+export const getNearbyHospitals  = (coords)   => api.get('/api/emergency/hospitals', { params: coords })
+export const getNearbyPolice     = (coords)   => api.get('/api/emergency/police', { params: coords })
+export const getNearbyAmbulance  = (coords)   => api.get('/api/emergency/ambulance', { params: coords })
+export const getEmergencyContacts = ()        => api.get('/api/emergency/contacts')

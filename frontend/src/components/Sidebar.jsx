@@ -2,11 +2,12 @@ import { NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   FiHome, FiBriefcase, FiFileText, FiAlertCircle,
-  FiShield, FiMessageSquare, FiBook, FiX
+  FiShield, FiMessageSquare, FiBook, FiX, FiGrid
 } from 'react-icons/fi'
 
 const navItems = [
   { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
+  { to: '/housing', icon: FiGrid, label: 'Housing & Community' },
   { to: '/jobs', icon: FiBriefcase, label: 'Jobs & Skills' },
   { to: '/schemes', icon: FiBook, label: 'Gov. Schemes' },
   { to: '/complaints', icon: FiFileText, label: 'Complaints' },

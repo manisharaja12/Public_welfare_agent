@@ -2,11 +2,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { FiBell, FiSearch, FiMenu, FiX, FiUser, FiLogOut, FiSettings, FiSun, FiMoon } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useAuth } from '../context/AuthContext'
 
 export default function Navbar({ dark, setDark, sidebarOpen, setSidebarOpen }) {
   const [profileOpen, setProfileOpen] = useState(false)
   const [notifOpen, setNotifOpen] = useState(false)
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
 
   const notifications = [
     { id: 1, text: 'Your complaint #1042 has been resolved.', time: '2m ago' },
@@ -96,7 +98,7 @@ export default function Navbar({ dark, setDark, sidebarOpen, setSidebarOpen }) {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center">
                 <FiUser size={14} className="text-white" />
               </div>
-              <span className="hidden md:block text-sm font-medium text-slate-700 dark:text-slate-300">Citizen</span>
+              <span className="hidden md:block text-sm font-medium text-slate-700 dark:text-slate-300">{user?.name?.split(' ')[0] || 'Citizen'}</span>
             </button>
             <AnimatePresence>
               {profileOpen && (
@@ -107,14 +109,14 @@ export default function Navbar({ dark, setDark, sidebarOpen, setSidebarOpen }) {
                   className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
                 >
                   <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-700">
-                    <p className="font-semibold text-slate-800 dark:text-white text-sm">Citizen User</p>
-                    <p className="text-xs text-slate-400">citizen@gov.in</p>
+                    <p className="font-semibold text-slate-800 dark:text-white text-sm">{user?.name || 'Citizen'}</p>
+                    <p className="text-xs text-slate-400">{user?.email || ''}</p>
                   </div>
                   <button className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">
                     <FiSettings size={14} /> Settings
                   </button>
                   <button
-                    onClick={() => navigate('/')}
+                    onClick={() => { logout(); navigate('/') }}
                     className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-slate-700"
                   >
                     <FiLogOut size={14} /> Logout
