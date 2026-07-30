@@ -77,7 +77,7 @@ async def register_property(
     available_from: str = Form(...),
     description: Optional[str] = Form(None),
     images: List[UploadFile] = File(default=[]),
-    current_user: dict = Depends(get_current_user),
+    current_user: dict = Depends(get_optional_user),
 ):
     try:
         data = HouseRegisterRequest(
@@ -89,7 +89,8 @@ async def register_property(
             bedrooms=bedrooms, bathrooms=bathrooms, furnished=furnished,
             parking=parking, available_from=available_from, description=description,
         )
-        result = await register_house(data, current_user["id"], images)
+        user_id = current_user["id"] if current_user else "guest"
+        result = await register_house(data, user_id, images)
         return result
     except HTTPException:
         raise

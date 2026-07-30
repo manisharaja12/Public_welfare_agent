@@ -411,7 +411,6 @@ export default function HousingPage() {
         </div>
 
         {loading ? (
-          <div className="flex items-center justify-center py
           <div className="flex items-center justify-center py-20">
             <FiLoader className="animate-spin text-blue-600" size={32} />
           </div>
