@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FiBriefcase, FiBook, FiFileText, FiAlertCircle, FiShield, FiMessageSquare, FiArrowRight, FiTrendingUp, FiUsers, FiCheckCircle } from 'react-icons/fi'
+import { FiBriefcase, FiBook, FiFileText, FiAlertCircle, FiShield, FiMessageSquare, FiArrowRight, FiTrendingUp, FiUsers, FiCheckCircle, FiHome } from 'react-icons/fi'
 import Breadcrumb from '../components/Breadcrumb'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
 const agents = [
-  { to: '/jobs', icon: FiBriefcase, title: 'Skill Development & Job Seeking', desc: 'AI-powered job matching, skill courses, and resume builder for career growth.', color: 'from-blue-500 to-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20', badge: 'Jobs' },
+  { to: '/housing', icon: FiHome, title: 'Housing & Community Welfare', desc: 'Find rental houses, PGs, shelters, donations, and home services with AI assistance.', color: 'from-blue-500 to-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20', badge: 'Housing' },
+  { to: '/jobs', icon: FiBriefcase, title: 'Skill Development & Job Seeking', desc: 'AI-powered job matching, skill courses, and resume builder for career growth.', color: 'from-cyan-500 to-cyan-600', bg: 'bg-cyan-50 dark:bg-cyan-900/20', badge: 'Jobs' },
   { to: '/schemes', icon: FiBook, title: 'Government Scheme Agent', desc: 'Discover welfare schemes you qualify for and apply with one click.', color: 'from-teal-500 to-teal-600', bg: 'bg-teal-50 dark:bg-teal-900/20', badge: 'Schemes' },
   { to: '/complaints', icon: FiFileText, title: 'Citizen Complaint Agent', desc: 'File grievances, track status, and get resolution updates in real-time.', color: 'from-purple-500 to-purple-600', bg: 'bg-purple-50 dark:bg-purple-900/20', badge: 'Complaints' },
   { to: '/emergency', icon: FiAlertCircle, title: 'Emergency Assistance Agent', desc: 'One-tap SOS with nearby hospitals, police stations, and ambulance services.', color: 'from-red-500 to-red-600', bg: 'bg-red-50 dark:bg-red-900/20', badge: 'Emergency' },
