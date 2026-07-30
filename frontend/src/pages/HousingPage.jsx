@@ -23,7 +23,7 @@ function PropertyCard({ house, index, onView }) {
     >
       <div className="relative h-44 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-slate-700 overflow-hidden">
         {house.images && house.images.length > 0 ? (
-          <img src={`http://localhost:8003${house.images[0]}`} alt={house.property_name || house.house_type} className="w-full h-full object-cover" />
+          <img src={`${import.meta.env.VITE_HOUSING_API_URL || 'http://localhost:8003'}${house.images[0]}`} alt={house.property_name || house.house_type} className="w-full h-full object-cover" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <FiHome size={48} className="text-blue-300 dark:text-blue-600/50" />
@@ -79,7 +79,7 @@ function PropertyModal({ house, onClose }) {
       >
         <div className="relative h-56 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-slate-700">
           {house.images && house.images.length > 0 ? (
-            <img src={`http://localhost:8003${house.images[0]}`} alt="" className="w-full h-full object-cover rounded-t-2xl" />
+            <img src={`${import.meta.env.VITE_HOUSING_API_URL || 'http://localhost:8003'}${house.images[0]}`} alt="" className="w-full h-full object-cover rounded-t-2xl" />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center rounded-t-2xl">
               <FiHome size={64} className="text-blue-300" />
@@ -140,7 +140,7 @@ function PropertyModal({ house, onClose }) {
               <h3 className="text-sm font-semibold text-slate-800 dark:text-white mb-2">Photos</h3>
               <div className="flex gap-2 overflow-x-auto pb-1">
                 {house.images.map((img, i) => (
-                  <img key={i} src={`http://localhost:8003${img}`} alt="" className="h-20 w-28 object-cover rounded-xl shrink-0" />
+                  <img key={i} src={`${import.meta.env.VITE_HOUSING_API_URL || 'http://localhost:8003'}${img}`} alt="" className="h-20 w-28 object-cover rounded-xl shrink-0" />
                 ))}
               </div>
             </div>
@@ -411,7 +411,6 @@ export default function HousingPage() {
         </div>
 
         {loading ? (
-          <div className="flex items-center justify-center py
           <div className="flex items-center justify-center py-20">
             <FiLoader className="animate-spin text-blue-600" size={32} />
           </div>
