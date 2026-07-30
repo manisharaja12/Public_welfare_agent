@@ -9,6 +9,7 @@ import ComplaintsPage from '../pages/ComplaintsPage'
 import EmergencyPage from '../pages/EmergencyPage'
 import CyberPage from '../pages/CyberPage'
 import ChatbotPage from '../pages/ChatbotPage'
+<<<<<<< Updated upstream
 import HousingPage from '../pages/HousingPage'
 import { useAuth } from '../context/AuthContext'
 
@@ -21,6 +22,11 @@ function ProtectedLayout() {
   )
   return <DashboardLayout />
 }
+=======
+import VolunteerPage from '../pages/VolunteerPage'
+import BusinessPage from '../pages/businesspage/BusinessPage'
+import DonationPage from '../pages/donationpage/DonationPage'
+>>>>>>> Stashed changes
 
 export default function AppRoutes() {
   return (
@@ -36,7 +42,13 @@ export default function AppRoutes() {
         <Route path="/emergency" element={<EmergencyPage />} />
         <Route path="/cyber" element={<CyberPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
+<<<<<<< Updated upstream
         <Route path="/housing" element={<HousingPage />} />
+=======
+        <Route path="/volunteer" element={<VolunteerPage />} />
+        <Route path="/business" element={<BusinessPage />} />
+        <Route path="/donation" element={<DonationPage />} />
+>>>>>>> Stashed changes
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
