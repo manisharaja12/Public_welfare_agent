@@ -4,12 +4,29 @@ import LandingPage from '../pages/LandingPage'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import DashboardPage from '../pages/DashboardPage'
-import JobsPage from '../pages/JobsPage'
 import SchemesPage from '../pages/SchemesPage'
 import ComplaintsPage from '../pages/ComplaintsPage'
 import EmergencyPage from '../pages/EmergencyPage'
 import CyberPage from '../pages/CyberPage'
 import ChatbotPage from '../pages/ChatbotPage'
+<<<<<<< Updated upstream
+import HousingPage from '../pages/HousingPage'
+import { useAuth } from '../context/AuthContext'
+
+function ProtectedLayout() {
+  const { loading } = useAuth()
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
+      <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+    </div>
+  )
+  return <DashboardLayout />
+}
+=======
+import VolunteerPage from '../pages/VolunteerPage'
+import BusinessPage from '../pages/businesspage/BusinessPage'
+import DonationPage from '../pages/donationpage/DonationPage'
+>>>>>>> Stashed changes
 
 export default function AppRoutes() {
   return (
@@ -18,14 +35,20 @@ export default function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
 
-      <Route element={<DashboardLayout />}>
+      <Route element={<ProtectedLayout />}>
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/jobs" element={<JobsPage />} />
         <Route path="/schemes" element={<SchemesPage />} />
         <Route path="/complaints" element={<ComplaintsPage />} />
         <Route path="/emergency" element={<EmergencyPage />} />
         <Route path="/cyber" element={<CyberPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
+<<<<<<< Updated upstream
+        <Route path="/housing" element={<HousingPage />} />
+=======
+        <Route path="/volunteer" element={<VolunteerPage />} />
+        <Route path="/business" element={<BusinessPage />} />
+        <Route path="/donation" element={<DonationPage />} />
+>>>>>>> Stashed changes
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
